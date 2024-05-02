@@ -15,7 +15,7 @@ createBtn.addEventListener("click", function() {
     return;
   }
 
-boxesDiv.innerHTML = "";
+const fragment = document.createDocumentFragment();
 
 for (let i = 0; i < amount; i++) {
   const size = 30 + i * 10;
@@ -24,8 +24,11 @@ for (let i = 0; i < amount; i++) {
   box.style.width = `${size}px`;
   box.style.height = `${size}px`;
   box.style.backgroundColor = getRandomHexColor();
-  boxesDiv.appendChild(box);
+  fragment.appendChild(box);
 }
+
+boxesDiv.innerHTML = "";
+boxesDiv.appendChild(fragment);
 
 input.value = "";
 });
